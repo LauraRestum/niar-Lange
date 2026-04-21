@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Envision | Thursday Deck</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --blue: #003087;
+  --blue-dark: #001852;
+  --green: #78BE21;
+  --green-deep: #5a9318;
+  --text: #0a0e1a;
+  --bg-white: #ffffff;
+  --bg-grey: #eef0f3;
+  --border: #d9dde3;
+  --border-strong: #aab3c0;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  color: var(--text);
+  background: var(--blue-dark);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+}
+
+/* ========== DECK FRAME ========== */
+.deck {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+  display: flex;
+  flex-direction: column;
+  padding: 3.5rem 4.5rem 3rem;
+}
+
+.slide.active {
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 1;
+}
+
+.slide.bg-white { background: var(--bg-white); }
+.slide.bg-grey  { background: var(--bg-grey); }
+.slide.bg-navy  { background: var(--blue-dark); color: #fff; }
+
+/* slide header band */
+.slide-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2.25rem;
+  flex-shrink: 0;
+}
+.slide.bg-navy .slide-head { border-bottom-color: rgba(255,255,255,0.15); }
+
+.slide-logo {
+  font-weight: 800;
+  font-size: 0.82rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--blue-dark);
+}
+.slide.bg-navy .slide-logo { color: #fff; }
+.slide-logo span { color: var(--green); }
+
+.slide-section-label {
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--green-deep);
+}
+.slide.bg-navy .slide-section-label { color: var(--green); }
+
+/* slide footer */
+.slide-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  margin-top: auto;
+  flex-shrink: 0;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--blue-dark);
+}
+.slide.bg-navy .slide-foot { border-top-color: rgba(255,255,255,0.15); color: #fff; }
+.slide-foot-tag span { color: var(--green-deep); }
+.slide.bg-navy .slide-foot-tag span { color: var(--green); }
+.slide-num { font-variant-numeric: tabular-nums; }
+
+/* slide content area */
+.slide-body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* ========== SHARED TYPE ========== */
+.eyebrow {
+  font-size: 0.66rem; font-weight: 800; letter-spacing: 0.28em;
+  text-transform: uppercase; color: var(--green-deep); margin-bottom: 1rem;
+  display: inline-flex; align-items: center; gap: 0.75rem;
+}
+.eyebrow::before { content: ''; display: block; width: 24px; height: 2px; background: var(--green); }
+.slide.bg-navy .eyebrow { color: var(--green); }
+
+h1.slide-title {
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  font-weight: 800; line-height: 1.05; letter-spacing: -0.025em;
+  color: var(--blue-dark); margin-bottom: 1.5rem;
+  max-width: 1100px;
+}
+.slide.bg-navy h1.slide-title { color: #fff; }
+h1.slide-title em { font-style: normal; color: var(--green-deep); }
+.slide.bg-navy h1.slide-title em { color: var(--green); }
+
+.slide-sub {
+  font-size: 1rem; color: var(--text); line-height: 1.65;
+  max-width: 880px; margin-bottom: 2rem; font-weight: 600;
+}
+.slide.bg-navy .slide-sub { color: #fff; }
+
+/* ========== SLIDE 1: TITLE ========== */
+.slide-title-layout {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+.title-accent {
+  width: 120px; height: 4px; background: var(--green);
+  margin-bottom: 2.5rem;
+}
+.title-hero-label {
+  font-size: 0.72rem; font-weight: 800; letter-spacing: 0.3em;
+  text-transform: uppercase; color: var(--green-deep);
+  margin-bottom: 2rem;
+  display: inline-flex; gap: 1rem; align-items: center;
+}
+.title-hero-label::before, .title-hero-label::after {
+  content: ''; display: block; width: 32px; height: 1px; background: var(--green);
+}
+h1.title-hero {
+  font-size: clamp(2.6rem, 5.2vw, 4.4rem);
+  font-weight: 800; line-height: 1.04; letter-spacing: -0.028em;
+  color: var(--blue-dark); margin-bottom: 2rem;
+  max-width: 1100px;
+}
+h1.title-hero em { font-style: normal; color: var(--green-deep); }
+.title-sub {
+  font-size: clamp(1rem, 1.3vw, 1.15rem); color: var(--text);
+  line-height: 1.7; max-width: 820px; font-weight: 600;
+  margin-bottom: 3rem;
+}
+.title-meta {
+  display: flex; gap: 4rem; justify-content: center;
+  padding-top: 2rem; border-top: 1px solid var(--border-strong);
+  flex-wrap: wrap;
+}
+.title-meta-item { text-align: left; }
+.title-meta-k {
+  font-size: 0.6rem; font-weight: 800; letter-spacing: 0.26em;
+  text-transform: uppercase; color: var(--blue-dark); margin-bottom: 0.5rem;
+}
+.title-meta-v {
+  font-size: 0.92rem; font-weight: 800; color: var(--blue-dark); letter-spacing: 0.01em;
+}
+.title-meta-v span { color: var(--green-deep); }
+
+/* ========== SLIDE 2: AT A GLANCE ========== */
+.aag-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-left: 1px solid var(--border);
+  margin-top: 2rem;
+  flex: 1;
+  align-content: center;
+}
+.aag-cell {
+  padding: 2rem 1.75rem;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.aag-cell:nth-child(-n+3) {
+  border-top: 1px solid var(--border);
+}
+.aag-n {
+  font-size: clamp(2rem, 3.2vw, 3rem); font-weight: 800;
+  color: var(--blue-dark); letter-spacing: -0.03em; line-height: 1;
+  margin-bottom: 0.8rem; font-variant-numeric: tabular-nums;
+}
+.aag-n span { color: var(--green-deep); }
+.aag-n.small { font-size: clamp(1.4rem, 2.4vw, 2rem); }
+.aag-l {
+  font-size: 0.7rem; font-weight: 800; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--blue-dark);
+  line-height: 1.5;
+}
+
+/* ========== SLIDE 3: WHAT WE DO INTRO ========== */
+.intro-layout {
+  display: grid; grid-template-columns: 1.3fr 1fr;
+  gap: 4rem; flex: 1; align-items: center;
+}
+.intro-caps-preview {
+  display: flex; flex-direction: column; gap: 1rem;
+}
+.intro-cap-item {
+  display: grid; grid-template-columns: 80px 1fr; gap: 1.25rem;
+  padding: 1rem 0; border-bottom: 1px solid var(--border);
+  align-items: start;
+}
+.intro-cap-item:last-child { border-bottom: none; }
+.intro-cap-num {
+  font-size: 0.68rem; font-weight: 800; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--green-deep);
+  padding-top: 0.1rem;
+}
+.intro-cap-label {
+  font-size: 1rem; font-weight: 800; color: var(--blue-dark);
+  letter-spacing: -0.005em; line-height: 1.3;
+}
+
+/* ========== SLIDE 4: FEATURED TEXTILE ========== */
+.featured-layout {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 3rem; flex: 1; align-items: start;
+  padding-top: 1rem;
+}
+.featured-body {
+  font-size: 1rem; color: var(--text); font-weight: 600;
+  line-height: 1.7;
+}
+.slide.bg-navy .featured-body { color: #fff; }
+.featured-detail-list {
+  list-style: none;
+  margin-top: 2rem; padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.2);
+}
+.featured-detail-list li {
+  font-size: 0.85rem; font-weight: 700; line-height: 1.6;
+  padding: 0.5rem 0 0.5rem 1.25rem; position: relative;
+  color: #fff;
+}
+.featured-detail-list li::before {
+  content: ''; position: absolute; left: 0; top: 1rem;
+  width: 10px; height: 2px; background: var(--green);
+}
+
+/* ========== SLIDE 5: 3 CAPABILITY CARDS ========== */
+.three-cap-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1px; background: var(--border); flex: 1;
+  border: 1px solid var(--border); margin-top: 1rem;
+}
+.cap-card-lg {
+  background: var(--bg-white); padding: 2rem 1.75rem;
+  display: flex; flex-direction: column;
+}
+.cap-card-lg .today-n {
+  font-size: 0.66rem; font-weight: 800; letter-spacing: 0.24em;
+  text-transform: uppercase; color: var(--green-deep);
+  margin-bottom: 1.5rem;
+  display: flex; align-items: center; gap: 0.6rem;
+}
+.cap-card-lg .today-n::before { content: ''; display: block; width: 16px; height: 2px; background: var(--green); }
+.cap-card-lg h3 {
+  font-size: 1.15rem; font-weight: 800; color: var(--blue-dark);
+  margin-bottom: 1rem; letter-spacing: -0.01em; line-height: 1.3;
+}
+.cap-card-lg p {
+  font-size: 0.92rem; color: var(--text); line-height: 1.65;
+  font-weight: 600;
+}
+
+/* ========== SLIDE 6: STORY INTRO ========== */
+.story-intro {
+  display: grid; grid-template-columns: 1fr;
+  flex: 1; align-content: center; justify-items: start;
+  max-width: 1000px;
+}
+.story-hero-line {
+  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+  line-height: 1.55; color: var(--text); font-weight: 700;
+  max-width: 920px; margin-top: 1rem;
+}
+.story-hero-line em { font-style: normal; color: var(--green-deep); font-weight: 800; }
+
+/* ========== SLIDE 7: CWHW PROGRAM ========== */
+.cwhw-layout {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0; flex: 1; align-items: stretch;
+  margin-top: 1rem;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+.cwhw-panel {
+  padding: 2.5rem 2rem;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.cwhw-panel.left {
+  background: #001030;
+  border-right: 3px solid var(--green);
+}
+.cwhw-panel.right {
+  background: var(--blue-dark);
+}
+.cwhw-tag {
+  font-size: 0.66rem; font-weight: 800; letter-spacing: 0.24em;
+  text-transform: uppercase; color: var(--green); margin-bottom: 1rem;
+}
+.cwhw-panel h3 {
+  font-size: 1.35rem; font-weight: 800; color: #fff;
+  margin-bottom: 1.25rem; letter-spacing: -0.01em; line-height: 1.25;
+}
+.cwhw-body {
+  font-size: 0.95rem; color: #fff; line-height: 1.7;
+  margin-bottom: 1rem; font-weight: 600;
+}
+.cwhw-body strong { color: var(--green); font-weight: 800; }
+
+/* ========== SLIDE 8: ARC ========== */
+.arc-layout {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1px; background: var(--border); flex: 1;
+  border: 1px solid var(--border); margin-top: 1rem;
+  align-items: stretch;
+}
+.arc-card {
+  background: var(--bg-white); padding: 2rem 1.5rem;
+  display: flex; flex-direction: column;
+}
+.arc-card.highlight {
+  background: var(--blue-dark); color: #fff;
+  border-top: 3px solid var(--green);
+}
+.arc-step-label {
+  font-size: 0.66rem; font-weight: 800; letter-spacing: 0.26em;
+  text-transform: uppercase; color: var(--green-deep);
+  margin-bottom: 1.25rem;
+}
+.arc-card.highlight .arc-step-label { color: var(--green); }
+.arc-card h4 {
+  font-size: 1rem; font-weight: 800; color: var(--blue-dark);
+  margin-bottom: 0.75rem; letter-spacing: -0.005em; line-height: 1.3;
+}
+.arc-card.highlight h4 { color: #fff; }
+.arc-card p {
+  font-size: 0.82rem; color: var(--text); line-height: 1.6; font-weight: 600;
+}
+.arc-card.highlight p { color: #fff; }
+
+/* ========== SLIDES 9-11: SYNERGY ========== */
+.syn-layout {
+  display: grid; grid-template-columns: 1fr 1.3fr;
+  gap: 3rem; flex: 1; align-items: center;
+  margin-top: 1rem;
+}
+.syn-left {
+  padding: 2.5rem 2rem;
+  border-left: 4px solid var(--green);
+  background: var(--bg-white);
+  border-top: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.syn-partner-label {
+  font-size: 0.68rem; font-weight: 800; letter-spacing: 0.3em;
+  text-transform: uppercase; color: var(--green-deep);
+  margin-bottom: 0.75rem;
+}
+.syn-head {
+  font-size: 1.35rem; font-weight: 800; color: var(--blue-dark);
+  margin-bottom: 1.25rem; letter-spacing: -0.01em; line-height: 1.3;
+}
+.syn-body {
+  font-size: 0.95rem; color: var(--text); font-weight: 600;
+  line-height: 1.7;
+}
+.syn-right {
+  padding-left: 1rem;
+}
+.syn-hooks {
+  list-style: none;
+}
+.syn-hooks li {
+  padding: 1rem 0 1rem 1.5rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.92rem; color: var(--text); font-weight: 700;
+  line-height: 1.55; position: relative;
+}
+.syn-hooks li:last-child { border-bottom: 1px solid var(--border); }
+.syn-hooks li::before {
+  content: ''; position: absolute; left: 0; top: 1.45rem;
+  width: 12px; height: 2px; background: var(--green);
+}
+.syn-hooks-head {
+  font-size: 0.62rem; font-weight: 800; letter-spacing: 0.24em;
+  text-transform: uppercase; color: var(--blue-dark);
+  margin-bottom: 0.75rem;
+}
+
+/* ========== SLIDE 12: STRATEGIC + CLOSE ========== */
+.strat-layout {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1px; background: var(--border);
+  margin-top: 1.5rem;
+  border: 1px solid var(--border);
+}
+.strat-card {
+  background: var(--bg-white); padding: 1.5rem 1.35rem;
+  display: flex; flex-direction: column; gap: 0.6rem;
+}
+.strat-card.featured {
+  background: var(--blue-dark); color: #fff;
+  border-left: 3px solid var(--green);
+}
+.strat-card.featured .strat-head { color: #fff; }
+.strat-card.featured .strat-body { color: #fff; }
+.strat-card.featured .strat-n { color: var(--green); }
+.strat-n {
+  font-size: 0.6rem; font-weight: 800; letter-spacing: 0.24em;
+  text-transform: uppercase; color: var(--green-deep);
+}
+.strat-head {
+  font-size: 1rem; font-weight: 800; color: var(--blue-dark);
+  letter-spacing: -0.005em; line-height: 1.3;
+}
+.strat-body {
+  font-size: 0.8rem; color: var(--text); line-height: 1.55; font-weight: 600;
+}
+
+.close-contacts-row {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1.25rem; margin-top: 1.5rem;
+}
+.cc-card {
+  padding: 1.25rem;
+  background: var(--bg-white);
+  border-left: 3px solid var(--green);
+  border-top: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.cc-role {
+  font-size: 0.58rem; font-weight: 800; letter-spacing: 0.24em;
+  text-transform: uppercase; color: var(--green-deep); margin-bottom: 0.5rem;
+}
+.cc-name {
+  font-size: 0.95rem; font-weight: 800; color: var(--blue-dark);
+  margin-bottom: 0.25rem; letter-spacing: -0.005em;
+}
+.cc-title {
+  font-size: 0.74rem; color: var(--blue-dark); font-weight: 700;
+  line-height: 1.4; margin-bottom: 0.6rem;
+}
+.cc-contact {
+  font-size: 0.72rem; color: var(--text); font-weight: 700;
+  line-height: 1.5; font-variant-numeric: tabular-nums;
+}
+
+/* ========== NAV CONTROLS ========== */
+.nav-controls {
+  position: fixed; bottom: 1.5rem; left: 50%;
+  transform: translateX(-50%);
+  display: flex; gap: 0.5rem; align-items: center;
+  background: rgba(255,255,255,0.95);
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.nav-btn {
+  background: transparent;
+  border: none;
+  color: var(--blue-dark);
+  font-family: inherit;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.4rem 0.75rem;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background 0.15s;
+}
+.nav-btn:hover { background: var(--bg-grey); }
+.nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+.nav-counter {
+  font-size: 0.66rem; font-weight: 800; letter-spacing: 0.14em;
+  color: var(--blue-dark); padding: 0 0.75rem;
+  font-variant-numeric: tabular-nums;
+}
+.nav-counter span { color: var(--green-deep); }
+
+/* hide nav controls on print */
+@media print {
+  .nav-controls { display: none; }
+  .slide { opacity: 1 !important; pointer-events: auto; position: relative; page-break-after: always; height: 100vh; }
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 1200px) {
+  .slide { padding: 2.5rem 3rem 2rem; }
+  h1.title-hero { font-size: 2.8rem; }
+  h1.slide-title { font-size: 2.2rem; }
+  .featured-layout, .syn-layout, .intro-layout { gap: 2rem; }
+}
+@media (max-width: 860px) {
+  .slide { padding: 2rem 1.5rem; }
+  .aag-grid, .featured-layout, .intro-layout, .syn-layout { grid-template-columns: 1fr; }
+  .three-cap-grid, .arc-layout, .strat-layout { grid-template-columns: 1fr; }
+  .title-meta { gap: 2rem; }
+  .cwhw-layout { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="deck" id="deck">
+
+<!-- ================= SLIDE 1: TITLE ================= -->
+<section class="slide bg-grey active" data-slide="1">
+  <div class="slide-head">
+    <div class="slide-logo">Envision<span>.</span></div>
+    <div class="slide-section-label">Partner Review</div>
+  </div>
+
+  <div class="slide-body">
+    <div class="slide-title-layout">
+      <div class="title-accent"></div>
+      <div class="title-hero-label">Built to Partner</div>
+      <h1 class="title-hero">U.S. manufacturing, federal credibility, and <em>a partner worth building with.</em></h1>
+      <p class="title-sub">Envision is an enterprise-grade American manufacturer with 90+ years of production heritage, a Berry and TAA compliant supply chain, and active work inside the DEVCOM Soldier Center ecosystem. Built to collaborate with organizations like NIAR and the Lange Companies on the kind of rapid prototyping, manufacturing, and federal work this region is known for.</p>
+
+      <div class="title-meta">
+        <div class="title-meta-item">
+          <div class="title-meta-k">Prepared For</div>
+          <div class="title-meta-v">NIAR, Lange <span>&amp; Partners</span></div>
+        </div>
+        <div class="title-meta-item">
+          <div class="title-meta-k">Location</div>
+          <div class="title-meta-v">Wichita, Kansas</div>
+        </div>
+        <div class="title-meta-item">
+          <div class="title-meta-k">Date</div>
+          <div class="title-meta-v">April 2026</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-foot">
+    <div class="slide-foot-tag">Prepared by <span>Envision</span></div>
+    <div class="slide-num">01 / 12</div>
+  </div>
+</section>
+
+<!-- ================= SLIDE 2: AT A GLANCE ================= -->
+<section class="slide bg-white" data-slide="2">
+  <div class="slide-head">
+    <div class="slide-logo">Envision<span>.</span></div>
+    <div class="slide-section-label">Envision At a Glance</div>
+  </div>
+
+  <div class="slide-body">
+    <div class="eyebrow">The Numbers</div>
+    <h1 class="slide-title">An established U.S. manufacturer, <em>built at scale.</em></h1>
+
+    <div class="aag-grid">
+      <div class="aag-cell">
+        <div class="aag-n">90<span>+</span></div>
+        <div class="aag-l">Years<br>Manufacturing</div>
+      </div>
+      <div class="aag-cell">
+        <div class="aag-n">410<span>K</span></div>
+        <div class="aag-l">Sq Ft Across<br>Dallas &amp; Wichita</div>
+      </div>
+      <div class="aag-cell">
+        <div class="aag-n">447</div>
+        <div class="aag-l">Skilled<br>Employees</div>
+      </div>
+      <div class="aag-cell">
+        <div class="aag-n">$40<span>M</span></div>
+        <div class="aag-l">Recent Facility<br>Investment</div>
+      </div>
+      <div class="aag-cell">
+        <div class="aag-n small">Berry<br>&amp; TAA</div>
+        <div class="aag-l">Compliant<br>Supply Chain</div>
+      </div>
+      <div class="aag-cell">
+        <div class="aag-n small">ISO<br>9001:2015</div>
+        <div class="aag-l">DCMA Alternate<br>Release Authorized</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-foot">
+    <div class="slide-foot-tag">Envision <span>|</span> Partner Review</div>
+    <div class="slide-num">02 / 12</div>
+  </div>
+</section>
+
+<!-- ================= SLIDE 3: WHAT WE DO INTRO ================= -->
+<section class="slide bg-grey" data-slide="3">
+  <div class="slide-head">
+    <div class="slide-logo">Envision<span>.</span></div>
+    <div class="slide-section-label">What We Do Today</div>
+  </div>
+
+  <div class="slide-body">
+    <div class="intro-layout">
+      <div>
+        <div class="eyebrow">What We Do Today</div>
+        <h1 class="slide-title">Four core capabilities, <em>vertically integrated.</em></h1>
+        <p class="slide-sub">Envision operates two manufacturing campuses in Dallas and Wichita, plus an on-site Innovation &amp; Prototyping Laboratory. Every capability is backed by operational infrastructure, documented past performance, and real scale headroom for partner ramp.</p>
+      </div>
+
+      <div class="intro-caps-preview">
+        <div class="intro-cap-item">
+          <div class="intro-cap-num">01</div>
+          <div class="intro-cap-label">Textile &amp; Sewn-Goods Manufacturing</div>
+        </div>
+        <div class="intro-cap-item">
+          <div class="intro-cap-num">02</div>
+          <div class="intro-cap-label">Innovation &amp; Prototyping Laboratory</div>
+        </div>
+        <div class="intro-cap-item">
+          <div class="intro-cap-num">03</div>
+          <div class="intro-cap-label">Kitting, Assembly &amp; Fulfillment</div>
+        </div>
+        <div class="intro-cap-item">
+          <div class="intro-cap-num">04</div>
+          <div class="intro-cap-label">Quality, Compliance &amp; Federal Channel</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-foot">
+    <div class="slide-foot-tag">Envision <span>|</span> Partner Review</div>
+    <div class="slide-num">03 / 12</div>
+  </div>
+</section>
+
+<!-- ================= SLIDE 4: FEATURED TEXTILE ================= -->
+<section class="slide bg-navy" data-slide="4">
+  <div class="slide-head">
+    <div class="slide-logo">Envision<span>.</span></div>
+    <div class="slide-section-label">Core Competency</div>
+  </div>
+
+  <div class="slide-body">
+    <div class="featured-layout">
+      <div>
+        <div class="eyebrow">01 &bull; Core Competency</div>
+        <h1 class="slide-title">Textile &amp; sewn-goods <em>manufacturing.</em></h1>
+      </div>
+
+      <div>
+        <p class="featured-body">High-mix technical textile production with federal-grade compliance. Safety apparel, uniforms, FR/AR clothing, tactical and technical garments. Automated and manual cutting, specialty materials, reflective trim, full sizing range. Production capacity for both custom runs and recurring programs.</p>
+
+        <ul class="featured-detail-list">
+          <li>Berry and TAA compliant supply chain</li>
+          <li>DCMA Alternate Release Program authorization</li>
+          <li>ISO 9001:2015 certified quality system</li>
+          <li>Active DEVCOM Soldier Center engagement</li>
+          <li>50,750 sq ft undeveloped space for capacity growth</li>
+          <li>Second and third shift capability</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-foot">
+    <div class="slide-foot-tag">Envision <span>|</span> Partner Review</div>
+    <div class="slide-num">04 / 12</div>
+  </div>
+</section>
+
+<!-- ================= SLIDE 5: 3 CAPABILITIES ================= -->
+<section class="slide bg-white" data-slide="5">
+  <div class="slide-head">
+    <div class="slide-logo">Envision<span>.</span></div>
+    <div class="slide-section-label">Capabilities Continued</div>
+  </div>
+
+  <div class="slide-body">
+    <div class="eyebrow">Capabilities Continued</div>
+    <h1 class="slide-title">Innovation, assembly, and <em>federal channel execution.</em></h1>
+
+    <div class="three-cap-grid">
+      <div class="cap-card-lg">
+        <div class="today-n">02</div>
+        <h3>Innovation &amp; Prototyping Laboratory</h3>
+        <p>End-to-end prototyping. Digital pattern design, smart textile integration (RFID, embedded sensors, e-textiles), additive manufacturing, manufacturability assessments, and secure collaboration with government and commercial partners.</p>
+      </div>
+      <div class="cap-card-lg">
+        <div class="today-n">03</div>
+        <h3>Kitting, Assembly &amp; Fulfillment</h3>
+        <p>Configuration services including kitting, serialized asset prep, packaging, labeling, and provisioning. Integrated fulfillment capability with direct ship to federal and commercial endpoints.</p>
+      </div>
+      <div class="cap-card-lg">
+        <div class="today-n">04</div>
+        <h3>Quality, Compliance &amp; Federal Channel</h3>
+        <p>ISO 9001:2015, DCMA Alternate Release Program authorization, PMO discipline, and a DLA AbilityOne Tailored Logistics Support lane. The operational spine that makes federal-grade delivery repeatable.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-foot">
+    <div class="slide-foot-tag">Envision <span>|</span> Partner Review</div>
+    <div class="slide-num">05 / 12</div>
+  </div>
+</section>
+
+<!-- ================= SLIDE 6: THE STORY INTRO ================= -->
+<section class="slide bg-grey" data-slide="6">
+  <div class="slide-head">
+    <div class="slide-logo">Envision<span>.</span></div>
+    <div class="slide-section-label">The Story</div>
+  </div>
+
+  <div class="slide-body">
+    <div class="story-intro">
+      <div class="eyebrow">The Story</div>
+      <h1 class="slide-title">From textile capability to <em>funded federal R&amp;D engagement.</em></h1>
+      <p class="story-hero-line">Envision's textile manufacturing heritage did not stay siloed. It became the foundation for direct engagement with the U.S. Army's DEVCOM Soldier Center on rapid prototyping of soldier-facing gear. <em>The Cold Weather Hand Warmer program is the proof.</em></p>
+    </div>
+  </div>
+
+  <div class="slide-foot">
+    <div class="slide-foot-tag">Envision <span>|</span> Partner Review</div>
+    <div class="slide-num">06 / 12</div>
+  </div>
+</section>
+
+<!-- ================= SLIDE 7: CWHW PROGRAM ================= -->
+<section class="slide bg-navy" data-slide="7">
+  <div class="slide-head">
+    <div class="slide-logo">Envision<span>.</span></div>
+    <div class="slide-section-label">Program In Action</div>
+  </div>
+
+  <div class="slide-body">
+    <div class="eyebrow">Program In Action</div>
+    <h1 class="slide-title">Army Cold Weather <em>Hand Warmer (CWHW).</em></h1>
+
+    <div class="cwhw-layout">
+      <div class="cwhw-panel left">
+        <div class="cwhw-tag">The Engagement</div>
+        <h3>A funded M&amp;D partnership with DEVCOM Soldier Center.</h3>
+        <p class="cwhw-body">Envision partnered with DEVCOM Soldier Center on a Manufacturing &amp; Development program to design, prototype, and iterate the Cold Weather Hand Warmer, a mission-critical piece of soldier gear. The project translated a government requirement into a production-ready prototype inside Envision's Innovation &amp; Prototyping Laboratory.</p>
+      </div>
+      <div class="cwhw-panel right">
+        <div class="cwhw-tag">What It Demonstrates</div>
+        <h3>A rapid prototyping partner, not just a manufacturing vendor.</h3>
+        <p class="cwhw-body"><strong>Envision moves from requirement to prototype to production-ready output inside a DoD program structure.</strong> That posture, transition partner rather than subcontractor, is how the company enters federal conversations today.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-foot">
+    <div class="slide-foot-tag">Envision <span>|</span> Partner Review</div>
+    <div class="slide-num">07 / 12</div>
+  </div>
+</section>
+
+<!-- ================= SLIDE 8: THE ARC ================= -->
+<section class="slide bg-white" data-slide="8">
+  <div class="slide-head">
+    <div class="slide-logo">Envision<span>.</span></div>
+    <div class="slide-section-label">The Replicable Pattern</div>
+  </div>
+
+  <div class="slide-body">
+    <div class="eyebrow">The Arc That Matters</div>
+    <h1 class="slide-title">How verified capability becomes <em>a federal engagement.</em></h1>
+    <p class="slide-sub">CWHW is not a one-off. It is a template. The same capability-to-engagement arc is how Envision enters every federal opportunity going forward, including the ones that this room might bring.</p>
+
+    <div class="arc-layout">
+      <div class="arc-card">
+        <div class="arc-step-label">Step 01</div>
+        <h4>Start with verified capability.</h4>
+        <p>Decades of textile manufacturing depth, compliance infrastructure, and innovation lab investment create the foundation.</p>
+      </div>
+      <div class="arc-card">
+        <div class="arc-step-label">Step 02</div>
+        <h4>Position as a transition partner.</h4>
+        <p>Engage as a rapid prototyping and pilot manufacturing partner, not a subcontractor. Different posture, different conversations.</p>
+      </div>
+      <div class="arc-card highlight">
+        <div class="arc-step-label">Step 03</div>
+        <h4>Land inside a funded program.</h4>
+        <p>Active M&amp;D engagement on CWHW. Prototype work funded by and delivered into the DEVCOM ecosystem.</p>
+      </div>
+      <div class="arc-card">
+        <div class="arc-step-label">Step 04</div>
+        <h4>Replicate the pattern.</h4>
+        <p>The same arc is how Envision enters every federal opportunity going forward.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-foot">
+    <div class="slide-foot-tag">Envision <span>|</span> Partner Review</div>
+    <div class="slide-num">08 / 12</div>
+  </div>
+</section>
+
+<!-- ================= SLIDE 9: SYNERGY NIAR ================= -->
+<section class="slide bg-grey" data-slide="9">
+  <div class="slide-head">
+    <div class="slide-logo">Envision<span>.</span></div>
+    <div class="slide-section-label">Natural Synergies</div>
+  </div>
+
+  <div class="slide-body">
+    <div class="eyebrow">Natural Synergies &bull; NIAR</div>
+    <h1 class="slide-title">Applied research needs <em>a manufacturing partner that delivers.</em></h1>
+
+    <div class="syn-layout">
+      <div class="syn-left">
+        <div class="syn-partner-label">NIAR</div>
+        <div class="syn-head">Complementary, not overlapping.</div>
+        <p class="syn-body">NIAR drives applied research from laboratory to real-world application. Envision provides the manufacturing, prototyping, and production-readiness depth that turns research outputs into fielded systems. Two organizations, distinct strengths, natural handoffs.</p>
+      </div>
+
+      <div class="syn-right">
+        <div class="syn-hooks-head">Concrete synergy hooks</div>
+        <ul class="syn-hooks">
+          <li>Shared Wichita State research and alumni network</li>
+          <li>Innovation Lab supports research-to-prototype workflows</li>
+          <li>Smart textile, sensor, and e-textile capability for wearable research</li>
+          <li>DEVCOM ecosystem already in active engagement</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-foot">
+    <div class="slide-foot-tag">Envision <span>|</span> Partner Review</div>
+    <div class="slide-num">09 / 12</div>
+  </div>
+</section>
+
+<!-- ================= SLIDE 10: SYNERGY LANGE ================= -->
+<section class="slide bg-white" data-slide="10">
+  <div class="slide-head">
+    <div class="slide-logo">Envision<span>.</span></div>
+    <div class="slide-section-label">Natural Synergies</div>
+  </div>
+
+  <div class="slide-body">
+    <div class="eyebrow">Natural Synergies &bull; Lange Companies</div>
+    <h1 class="slide-title">Federal credibility, configuration depth, <em>and a channel.</em></h1>
+
+    <div class="syn-layout">
+      <div class="syn-left">
+        <div class="syn-partner-label">Lange Companies</div>
+        <div class="syn-head">Two Wichita manufacturers, complementary capability.</div>
+        <p class="syn-body">Lange operates across hardened structures, smart asset tracking, and government contracting. Envision brings textile and sewn-goods manufacturing, configuration and fulfillment, and a DLA AbilityOne Tailored Logistics Support lane that pairs naturally with what Lange already runs.</p>
+      </div>
+
+      <div class="syn-right">
+        <div class="syn-hooks-head">Concrete synergy hooks</div>
+        <ul class="syn-hooks">
+          <li>Two Wichita manufacturers, walking-distance collaboration possible</li>
+          <li>Envision assembly capacity adjacent to AKUA fulfillment work</li>
+          <li>TLS lane complements existing GSA MAS coverage</li>
+          <li>BVI workforce creates federal channel advantages</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-foot">
+    <div class="slide-foot-tag">Envision <span>|</span> Partner Review</div>
+    <div class="slide-num">10 / 12</div>
+  </div>
+</section>
+
+<!-- ================= SLIDE 11: SYNERGY BROADER ================= -->
+<section class="slide bg-grey" data-slide="11">
+  <div class="slide-head">
+    <div class="slide-logo">Envision<span>.</span></div>
+    <div class="slide-section-label">Natural Synergies</div>
+  </div>
+
+  <div class="slide-body">
+    <div class="eyebrow">Natural Synergies &bull; The Broader Group</div>
+    <h1 class="slide-title">A reliable domestic manufacturing partner <em>for the ecosystem.</em></h1>
+
+    <div class="syn-layout">
+      <div class="syn-left">
+        <div class="syn-partner-label">Broader Group</div>
+        <div class="syn-head">Operational, not aspirational.</div>
+        <p class="syn-body">For the broader Wichita and federal innovation ecosystem, Envision represents compliant, scalable, U.S.-based manufacturing and prototyping capacity that partners can trust. We work as a transition partner, not a transactional vendor.</p>
+      </div>
+
+      <div class="syn-right">
+        <div class="syn-hooks-head">Concrete synergy hooks</div>
+        <ul class="syn-hooks">
+          <li>Berry, TAA, ISO, and DCMA credentials in place</li>
+          <li>Federal channel infrastructure operational, not aspirational</li>
+          <li>Innovation Lab open to collaborative R&amp;D engagements</li>
+          <li>Capacity headroom for partner ramp and program scaling</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-foot">
+    <div class="slide-foot-tag">Envision <span>|</span> Partner Review</div>
+    <div class="slide-num">11 / 12</div>
+  </div>
+</section>
+
+<!-- ================= SLIDE 12: STRATEGIC DIRECTION + CLOSE ================= -->
+<section class="slide bg-white" data-slide="12">
+  <div class="slide-head">
+    <div class="slide-logo">Envision<span>.</span></div>
+    <div class="slide-section-label">Strategic Direction</div>
+  </div>
+
+  <div class="slide-body">
+    <div class="eyebrow">Strategic Direction</div>
+    <h1 class="slide-title">Where Envision is <em>intentionally diversifying.</em></h1>
+    <p class="slide-sub">Envision is building the next chapter around four directional themes. Specifics are walked through in the room. What follows is the shape of the direction.</p>
+
+    <div class="strat-layout">
+      <div class="strat-card featured">
+        <div class="strat-n">Theme 01</div>
+        <div class="strat-head">Federal and enterprise channel expansion.</div>
+        <div class="strat-body">Thoughtful work on how Envision funds, scales, and shows up inside both government and enterprise channels. Built for durability, not for a single program.</div>
+      </div>
+      <div class="strat-card">
+        <div class="strat-n">Theme 02</div>
+        <div class="strat-head">Innovation Lab as a funded R&amp;D engine.</div>
+        <div class="strat-body">A posture that keeps the Innovation Lab engaged as a transition partner across research and commercial opportunities, rather than an internal cost center.</div>
+      </div>
+      <div class="strat-card">
+        <div class="strat-n">Theme 03</div>
+        <div class="strat-head">Portfolio diversification.</div>
+        <div class="strat-body">Extending core manufacturing and prototyping depth into adjacent capability areas where Envision's infrastructure, workforce, and compliance posture translate cleanly.</div>
+      </div>
+      <div class="strat-card">
+        <div class="strat-n">Theme 04</div>
+        <div class="strat-head">Enterprise partnerships.</div>
+        <div class="strat-body">Building a small set of enterprise relationships where manufacturing depth, federal channel access, and workforce advantage create durable value. Partner-led, not vendor-led.</div>
+      </div>
+    </div>
+
+    <div class="close-contacts-row">
+      <div class="cc-card">
+        <div class="cc-role">Partnership Lead</div>
+        <div class="cc-name">Sebastian Zahr</div>
+        <div class="cc-title">Chief Revenue &amp; Strategy Officer</div>
+        <div class="cc-contact">
+          Sebastian.Zahr&#64;EnvisionUS.com<br>
+          (316) 655-4243
+        </div>
+      </div>
+      <div class="cc-card">
+        <div class="cc-role">Operations &amp; NPD</div>
+        <div class="cc-name">Patrick Tuttle</div>
+        <div class="cc-title">SVP Operations &amp; New Product Development</div>
+        <div class="cc-contact">
+          Patrick.Tuttle&#64;EnvisionUS.com<br>
+          (316) 253-1468
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-foot">
+    <div class="slide-foot-tag">Envision <span>|</span> Partner Review</div>
+    <div class="slide-num">12 / 12</div>
+  </div>
+</section>
+
+</div>
+
+<!-- ========== NAV CONTROLS ========== -->
+<div class="nav-controls">
+  <button class="nav-btn" id="prevBtn" onclick="prevSlide()">&larr; Prev</button>
+  <div class="nav-counter"><span id="currSlide">1</span> / <span id="totalSlides">12</span></div>
+  <button class="nav-btn" id="nextBtn" onclick="nextSlide()">Next &rarr;</button>
+  <button class="nav-btn" onclick="toggleFullscreen()" style="border-left: 1px solid var(--border); padding-left: 1rem; margin-left: 0.5rem;">Fullscreen</button>
+</div>
+
+<script>
+let currentSlide = 1;
+const totalSlides = 12;
+
+document.getElementById('totalSlides').textContent = totalSlides;
+
+function showSlide(n) {
+  document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+  const target = document.querySelector(`[data-slide="${n}"]`);
+  if (target) {
+    target.classList.add('active');
+    currentSlide = n;
+    document.getElementById('currSlide').textContent = n;
+    document.getElementById('prevBtn').disabled = (n === 1);
+    document.getElementById('nextBtn').disabled = (n === totalSlides);
+  }
+}
+
+function nextSlide() { if (currentSlide < totalSlides) showSlide(currentSlide + 1); }
+function prevSlide() { if (currentSlide > 1) showSlide(currentSlide - 1); }
+
+function toggleFullscreen() {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+  } else {
+    document.exitFullscreen();
+  }
+}
+
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+    e.preventDefault();
+    nextSlide();
+  } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+    e.preventDefault();
+    prevSlide();
+  } else if (e.key === 'Home') {
+    showSlide(1);
+  } else if (e.key === 'End') {
+    showSlide(totalSlides);
+  } else if (e.key === 'f' || e.key === 'F') {
+    toggleFullscreen();
+  }
+});
+
+// Initialize
+showSlide(1);
+</script>
+
+</body>
+</html>
