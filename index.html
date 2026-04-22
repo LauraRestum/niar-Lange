@@ -76,14 +76,13 @@ body {
 .slide.bg-navy .slide-head { border-bottom-color: rgba(255,255,255,0.15); }
 
 .slide-logo {
-  font-weight: 800;
-  font-size: 0.95rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--blue-dark);
+  display: block;
+  height: 34px;
+  width: auto;
+  /* Source logo is white; invert to dark on light slide headers */
+  filter: brightness(0) saturate(100%) invert(14%) sepia(34%) saturate(1200%) hue-rotate(185deg) brightness(95%) contrast(95%);
 }
-.slide.bg-navy .slide-logo { color: #fff; }
-.slide-logo span { color: var(--green); }
+.slide.bg-navy .slide-logo { filter: none; }
 
 .slide-section-label {
   font-size: 0.72rem;
@@ -758,7 +757,7 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
 <!-- ================= SLIDE 1: TITLE ================= -->
 <section class="slide bg-white active" data-slide="1">
   <div class="slide-head">
-    <div class="slide-logo">Envision<span>.</span></div>
+    <img class="slide-logo" src="Envision_PrimaryLogo_WHITE.png" alt="Envision">
     <div class="slide-section-label">Partner Review</div>
   </div>
 
@@ -809,7 +808,7 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
 <!-- ================= SLIDE 2: AT A GLANCE ================= -->
 <section class="slide bg-white" data-slide="2">
   <div class="slide-head">
-    <div class="slide-logo">Envision<span>.</span></div>
+    <img class="slide-logo" src="Envision_PrimaryLogo_WHITE.png" alt="Envision">
     <div class="slide-section-label">Envision At a Glance</div>
   </div>
 
@@ -858,7 +857,7 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
 <!-- ================= SLIDE 3: WHAT WE DO INTRO ================= -->
 <section class="slide bg-grey" data-slide="3">
   <div class="slide-head">
-    <div class="slide-logo">Envision<span>.</span></div>
+    <img class="slide-logo" src="Envision_PrimaryLogo_WHITE.png" alt="Envision">
     <div class="slide-section-label">What We Do Today</div>
   </div>
 
@@ -941,7 +940,7 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
 <!-- ================= SLIDE 5: 3 CAPABILITIES ================= -->
 <section class="slide bg-white" data-slide="5">
   <div class="slide-head">
-    <div class="slide-logo">Envision<span>.</span></div>
+    <img class="slide-logo" src="Envision_PrimaryLogo_WHITE.png" alt="Envision">
     <div class="slide-section-label">Capabilities Continued</div>
   </div>
 
@@ -992,7 +991,7 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
 <!-- ================= SLIDE 6: THE STORY INTRO ================= -->
 <section class="slide bg-grey" data-slide="6">
   <div class="slide-head">
-    <div class="slide-logo">Envision<span>.</span></div>
+    <img class="slide-logo" src="Envision_PrimaryLogo_WHITE.png" alt="Envision">
     <div class="slide-section-label">The Story</div>
   </div>
 
@@ -1048,7 +1047,7 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
 <!-- ================= SLIDE 8: THE ARC ================= -->
 <section class="slide bg-white" data-slide="8">
   <div class="slide-head">
-    <div class="slide-logo">Envision<span>.</span></div>
+    <img class="slide-logo" src="Envision_PrimaryLogo_WHITE.png" alt="Envision">
     <div class="slide-section-label">The Replicable Pattern</div>
   </div>
 
@@ -1090,7 +1089,7 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
 <!-- ================= SLIDE 9: SYNERGY - RESEARCH PARTNERS ================= -->
 <section class="slide bg-grey" data-slide="9">
   <div class="slide-head">
-    <div class="slide-logo">Envision<span>.</span></div>
+    <img class="slide-logo" src="Envision_PrimaryLogo_WHITE.png" alt="Envision">
     <div class="slide-section-label">Natural Synergies</div>
   </div>
 
@@ -1126,7 +1125,7 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
 <!-- ================= SLIDE 10: SYNERGY - INDUSTRY PARTNERS ================= -->
 <section class="slide bg-white" data-slide="10">
   <div class="slide-head">
-    <div class="slide-logo">Envision<span>.</span></div>
+    <img class="slide-logo" src="Envision_PrimaryLogo_WHITE.png" alt="Envision">
     <div class="slide-section-label">Natural Synergies</div>
   </div>
 
@@ -1162,7 +1161,7 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
 <!-- ================= SLIDE 11: SYNERGY - ENTERPRISE & ECOSYSTEM ================= -->
 <section class="slide bg-grey" data-slide="11">
   <div class="slide-head">
-    <div class="slide-logo">Envision<span>.</span></div>
+    <img class="slide-logo" src="Envision_PrimaryLogo_WHITE.png" alt="Envision">
     <div class="slide-section-label">Natural Synergies</div>
   </div>
 
@@ -1198,7 +1197,7 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
 <!-- ================= SLIDE 12: STRATEGIC DIRECTION + CLOSE ================= -->
 <section class="slide bg-white" data-slide="12">
   <div class="slide-head">
-    <div class="slide-logo">Envision<span>.</span></div>
+    <img class="slide-logo" src="Envision_PrimaryLogo_WHITE.png" alt="Envision">
     <div class="slide-section-label">Strategic Direction</div>
   </div>
 
