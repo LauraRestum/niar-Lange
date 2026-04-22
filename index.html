@@ -531,6 +531,28 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
   display: grid; grid-template-columns: 1fr 1fr;
   gap: 1.25rem; margin-top: 1.5rem;
 }
+.contacts-slide-row {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 2rem; margin-top: 2rem;
+  flex: 1; align-content: start;
+}
+.contacts-slide-row .cc-card {
+  padding: 2.25rem 2rem;
+  border-left-width: 4px;
+}
+.contacts-slide-row .cc-role {
+  font-size: 0.8rem; margin-bottom: 1rem;
+}
+.contacts-slide-row .cc-name {
+  font-size: 1.8rem; margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+.contacts-slide-row .cc-title {
+  font-size: 1.05rem; margin-bottom: 1.25rem;
+}
+.contacts-slide-row .cc-contact {
+  font-size: 1rem; line-height: 1.7;
+}
 .cc-card {
   padding: 1.25rem;
   background: var(--bg-white);
@@ -639,9 +661,12 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
 
 /* At-a-glance media banner (slide 2) */
 .aag-media {
-  aspect-ratio: 21 / 7;
+  aspect-ratio: 21 / 6;
   min-height: 0;
   margin-bottom: 1.25rem;
+}
+.aag-media img.img-real {
+  object-position: center 35%;
 }
 
 /* Capability card media (slide 5) */
@@ -679,8 +704,11 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
 .cwhw-media {
   margin-top: 1.25rem;
   grid-column: 1 / -1;
-  min-height: 140px;
-  aspect-ratio: auto;
+  aspect-ratio: 21 / 6;
+  min-height: 0;
+}
+.cwhw-media img.img-real {
+  object-position: center 40%;
 }
 
 .intro-media {
@@ -783,16 +811,16 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
 
         <div class="title-meta">
           <div class="title-meta-item">
-            <div class="title-meta-k">Prepared For</div>
-            <div class="title-meta-v">Partner <span>Review</span></div>
-          </div>
-          <div class="title-meta-item">
             <div class="title-meta-k">Headquarters</div>
             <div class="title-meta-v">Dallas &amp; Wichita</div>
           </div>
           <div class="title-meta-item">
-            <div class="title-meta-k">Prepared By</div>
-            <div class="title-meta-v">Envision <span>Partnerships</span></div>
+            <div class="title-meta-k">Heritage</div>
+            <div class="title-meta-v">90<span>+</span> Years Manufacturing</div>
+          </div>
+          <div class="title-meta-item">
+            <div class="title-meta-k">Compliance</div>
+            <div class="title-meta-v">Berry <span>&amp;</span> TAA</div>
           </div>
         </div>
       </div>
@@ -800,8 +828,8 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
   </div>
 
   <div class="slide-foot">
-    <div class="slide-foot-tag">Prepared by <span>Envision</span></div>
-    <div class="slide-num">01 / 12</div>
+    <div class="slide-foot-tag">Envision <span>|</span> Partner Review</div>
+    <div class="slide-num">01 / 13</div>
   </div>
 </section>
 
@@ -817,7 +845,7 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
     <h1 class="slide-title">An established U.S. manufacturer, <em>built at scale.</em></h1>
 
     <div class="img-ph has-image aag-media">
-      <img class="img-real" src="envision%201865776-23-21.jpg" alt="Envision Industries facility exterior">
+      <img class="img-real" src="envision%201866006-23-21.jpg" alt="Envision Industries manufacturing operation">
     </div>
 
     <div class="aag-grid">
@@ -850,7 +878,7 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
 
   <div class="slide-foot">
     <div class="slide-foot-tag">Envision <span>|</span> Partner Review</div>
-    <div class="slide-num">02 / 12</div>
+    <div class="slide-num">02 / 13</div>
   </div>
 </section>
 
@@ -895,7 +923,7 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
 
   <div class="slide-foot">
     <div class="slide-foot-tag">Envision <span>|</span> Partner Review</div>
-    <div class="slide-num">03 / 12</div>
+    <div class="slide-num">03 / 13</div>
   </div>
 </section>
 
@@ -933,7 +961,7 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
 
   <div class="slide-foot">
     <div class="slide-foot-tag">Envision <span>|</span> Partner Review</div>
-    <div class="slide-num">04 / 12</div>
+    <div class="slide-num">04 / 13</div>
   </div>
 </section>
 
@@ -984,7 +1012,7 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
 
   <div class="slide-foot">
     <div class="slide-foot-tag">Envision <span>|</span> Partner Review</div>
-    <div class="slide-num">05 / 12</div>
+    <div class="slide-num">05 / 13</div>
   </div>
 </section>
 
@@ -1005,7 +1033,7 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
 
   <div class="slide-foot">
     <div class="slide-foot-tag">Envision <span>|</span> Partner Review</div>
-    <div class="slide-num">06 / 12</div>
+    <div class="slide-num">06 / 13</div>
   </div>
 </section>
 
@@ -1021,7 +1049,7 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
     <h1 class="slide-title">Army Cold Weather <em>Hand Warmer (CWHW).</em></h1>
 
     <div class="img-ph has-image cwhw-media">
-      <img class="img-real" src="envision%201866576-23-21.jpg" alt="Production and fulfillment floor">
+      <img class="img-real" src="envision%201866246-23-21.jpg" alt="Production and fulfillment floor">
     </div>
 
     <div class="cwhw-layout">
@@ -1040,7 +1068,7 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
 
   <div class="slide-foot">
     <div class="slide-foot-tag">Envision <span>|</span> Partner Review</div>
-    <div class="slide-num">07 / 12</div>
+    <div class="slide-num">07 / 13</div>
   </div>
 </section>
 
@@ -1082,7 +1110,7 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
 
   <div class="slide-foot">
     <div class="slide-foot-tag">Envision <span>|</span> Partner Review</div>
-    <div class="slide-num">08 / 12</div>
+    <div class="slide-num">08 / 13</div>
   </div>
 </section>
 
@@ -1118,7 +1146,7 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
 
   <div class="slide-foot">
     <div class="slide-foot-tag">Envision <span>|</span> Partner Review</div>
-    <div class="slide-num">09 / 12</div>
+    <div class="slide-num">09 / 13</div>
   </div>
 </section>
 
@@ -1154,7 +1182,7 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
 
   <div class="slide-foot">
     <div class="slide-foot-tag">Envision <span>|</span> Partner Review</div>
-    <div class="slide-num">10 / 12</div>
+    <div class="slide-num">10 / 13</div>
   </div>
 </section>
 
@@ -1190,7 +1218,7 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
 
   <div class="slide-foot">
     <div class="slide-foot-tag">Envision <span>|</span> Partner Review</div>
-    <div class="slide-num">11 / 12</div>
+    <div class="slide-num">11 / 13</div>
   </div>
 </section>
 
@@ -1228,8 +1256,27 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
         <div class="strat-body">Building a small set of enterprise relationships where manufacturing depth, federal channel access, and workforce advantage create durable value. Partner-led, not vendor-led.</div>
       </div>
     </div>
+  </div>
 
-    <div class="close-contacts-row">
+  <div class="slide-foot">
+    <div class="slide-foot-tag">Envision <span>|</span> Partner Review</div>
+    <div class="slide-num">12 / 13</div>
+  </div>
+</section>
+
+<!-- ================= SLIDE 13: CONTACTS ================= -->
+<section class="slide bg-white" data-slide="13">
+  <div class="slide-head">
+    <img class="slide-logo" src="Envision_PrimaryLogo_WHITE.png" alt="Envision">
+    <div class="slide-section-label">Let's Build Together</div>
+  </div>
+
+  <div class="slide-body">
+    <div class="eyebrow">Contact</div>
+    <h1 class="slide-title">Let's build <em>the next chapter together.</em></h1>
+    <p class="slide-sub">For partnership conversations, program opportunities, or deeper technical discussion, reach out directly to either lead below.</p>
+
+    <div class="contacts-slide-row">
       <div class="cc-card">
         <div class="cc-role">Partnership Lead</div>
         <div class="cc-name">Sebastian Zahr</div>
@@ -1253,7 +1300,7 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
 
   <div class="slide-foot">
     <div class="slide-foot-tag">Envision <span>|</span> Partner Review</div>
-    <div class="slide-num">12 / 12</div>
+    <div class="slide-num">13 / 13</div>
   </div>
 </section>
 
@@ -1269,7 +1316,7 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
 
 <script>
 let currentSlide = 1;
-const totalSlides = 12;
+const totalSlides = 13;
 
 document.getElementById('totalSlides').textContent = totalSlides;
 
