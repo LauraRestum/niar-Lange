@@ -22,8 +22,9 @@
 
 html, body {
   height: 100%;
-  overflow: hidden;
 }
+html { overflow: hidden; }
+body { overflow: hidden; }
 
 body {
   font-family: 'Montserrat', sans-serif;
@@ -51,6 +52,8 @@ body {
   display: flex;
   flex-direction: column;
   padding: 2.5rem 4rem 2.25rem;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .slide.active {
@@ -119,7 +122,6 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 0;
-  overflow: hidden;
 }
 
 /* ========== SHARED TYPE ========== */
@@ -759,6 +761,56 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
 }
 
 /* ========== RESPONSIVE ========== */
+/* Shorter-height viewports: tighten spacing + typography so images and body fit */
+@media (max-height: 900px) {
+  .slide { padding: 1.75rem 3rem 1.5rem; }
+  h1.slide-title { font-size: clamp(1.9rem, 3.4vw, 2.6rem); margin-bottom: 1rem; }
+  h1.title-hero { font-size: clamp(1.9rem, 2.9vw, 2.6rem); margin-bottom: 1rem; }
+  .slide-sub { font-size: 1rem; margin-bottom: 1.25rem; }
+  .eyebrow { margin-bottom: 0.6rem; font-size: 0.72rem; }
+  .slide-head { margin-bottom: 1rem; padding-bottom: 0.5rem; }
+  .slide-foot { padding-top: 0.6rem; font-size: 0.68rem; }
+  .aag-cell { padding: 1.1rem 1.25rem; }
+  .aag-n { font-size: clamp(1.8rem, 2.8vw, 2.4rem); margin-bottom: 0.5rem; }
+  .aag-n.small { font-size: clamp(1.3rem, 2vw, 1.7rem); }
+  .aag-l { font-size: 0.72rem; }
+  .aag-media { aspect-ratio: 21 / 4.5; margin-bottom: 0.75rem; }
+  .intro-media { aspect-ratio: 16 / 8; margin-bottom: 1rem; }
+  .featured-media { aspect-ratio: 16 / 9; margin-top: 1rem; }
+  .cwhw-media { aspect-ratio: 21 / 5; margin-top: 0.9rem; }
+  .cwhw-panel { padding: 1.25rem 1.25rem; }
+  .cwhw-panel h3 { font-size: 1.3rem; margin-bottom: 0.75rem; }
+  .cwhw-body { font-size: 0.98rem; }
+  .featured-body { font-size: 1.05rem; }
+  .featured-detail-list { margin-top: 1.25rem; padding-top: 1rem; }
+  .featured-detail-list li { font-size: 0.92rem; padding: 0.4rem 0 0.4rem 1.25rem; }
+  .cap-card-inner { padding: 1rem 1.25rem 1.25rem; }
+  .cap-card-lg h3 { font-size: 1.15rem; margin-bottom: 0.55rem; }
+  .cap-card-lg p { font-size: 0.94rem; }
+  .arc-card { padding: 1.25rem 1.1rem; }
+  .arc-card h4 { font-size: 1.05rem; margin-bottom: 0.5rem; }
+  .arc-card p { font-size: 0.88rem; }
+  .syn-left { padding: 1.25rem 1.25rem; }
+  .syn-head { font-size: 1.3rem; margin-bottom: 0.8rem; }
+  .syn-body { font-size: 1rem; }
+  .syn-hooks li { font-size: 0.95rem; padding: 0.75rem 0 0.75rem 1.4rem; }
+  .strat-card { padding: 1.1rem 1.1rem; }
+  .strat-head { font-size: 1.02rem; }
+  .strat-body { font-size: 0.88rem; }
+  .story-hero-line { font-size: clamp(1.05rem, 1.6vw, 1.35rem); }
+  .contacts-slide-row .cc-card { padding: 1.5rem 1.5rem; }
+  .contacts-slide-row .cc-name { font-size: 1.45rem; }
+  .contacts-slide-row .cc-title { font-size: 0.95rem; margin-bottom: 0.9rem; }
+  .contacts-slide-row .cc-contact { font-size: 0.92rem; }
+  .title-meta { padding-top: 0.9rem; gap: 0.9rem; }
+  .title-sub { margin-bottom: 1rem; }
+}
+@media (max-height: 720px) {
+  .slide { padding: 1.25rem 2.25rem 1rem; }
+  .aag-media, .cwhw-media { aspect-ratio: 21 / 4; }
+  .aag-cell { padding: 0.85rem 1rem; }
+  .aag-n { font-size: clamp(1.5rem, 2.4vw, 2rem); margin-bottom: 0.35rem; }
+}
 @media (max-width: 1200px) {
   .slide { padding: 2.5rem 3rem 2rem; }
   h1.title-hero { font-size: 2.8rem; }
@@ -870,8 +922,8 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
         <div class="aag-l">Compliant<br>Supply Chain</div>
       </div>
       <div class="aag-cell">
-        <div class="aag-n small">ISO<br>9001:2015</div>
-        <div class="aag-l">DCMA Alternate<br>Release Authorized</div>
+        <div class="aag-n">150<span>+</span></div>
+        <div class="aag-l">Base Supply Stores<br>via Envision Xpress</div>
       </div>
     </div>
   </div>
@@ -949,7 +1001,6 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
 
         <ul class="featured-detail-list">
           <li>Berry and TAA compliant supply chain</li>
-          <li>DCMA Alternate Release Program authorization</li>
           <li>ISO 9001:2015 certified quality system</li>
           <li>Active DEVCOM Soldier Center engagement</li>
           <li>50,750 sq ft undeveloped space for capacity growth</li>
@@ -984,7 +1035,7 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
         <div class="cap-card-inner">
           <div class="today-n">02</div>
           <h3>Innovation &amp; Prototyping Laboratory</h3>
-          <p>End-to-end prototyping. Digital pattern design, smart textile integration (RFID, embedded sensors, e-textiles), additive manufacturing, manufacturability assessments, and secure collaboration with government and commercial partners.</p>
+          <p>End-to-end prototyping. Digital pattern design, additive manufacturing, manufacturability assessments, and secure collaboration with government and commercial partners &mdash; with an active roadmap toward smart textile and e-textile capability as part of portfolio diversification.</p>
         </div>
       </div>
       <div class="cap-card-lg">
@@ -1004,7 +1055,7 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
         <div class="cap-card-inner">
           <div class="today-n">04</div>
           <h3>Quality, Compliance &amp; Federal Channel</h3>
-          <p>ISO 9001:2015, DCMA Alternate Release Program authorization, PMO discipline, and a DLA AbilityOne Tailored Logistics Support lane. The operational spine that makes federal-grade delivery repeatable.</p>
+          <p>ISO 9001:2015, PMO discipline, a DLA AbilityOne Tailored Logistics Support lane, and Envision Xpress &mdash; on-installation reach across 150+ Base Supply Stores and 16 BSCs in 10 states. The operational spine that makes federal-grade delivery repeatable.</p>
         </div>
       </div>
     </div>
@@ -1082,7 +1133,7 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
   <div class="slide-body">
     <div class="eyebrow">The Arc That Matters</div>
     <h1 class="slide-title">How verified capability becomes <em>a federal engagement.</em></h1>
-    <p class="slide-sub">CWHW is not a one-off. It is a template. The same capability-to-engagement arc is how Envision enters every federal opportunity going forward, including the ones that this room might bring.</p>
+    <p class="slide-sub">Envision has already demonstrated a model of taking an existing manufacturing capability, aligning it to mission need, supporting funded customer engagement, and positioning for broader transition. The same arc is how Envision enters every federal opportunity going forward, including the ones that this room might bring.</p>
 
     <div class="arc-layout">
       <div class="arc-card">
@@ -1136,7 +1187,7 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
         <div class="syn-hooks-head">Concrete synergy hooks</div>
         <ul class="syn-hooks">
           <li>Innovation Lab supports research-to-prototype workflows</li>
-          <li>Smart textile, sensor, and e-textile capability for wearable research</li>
+          <li>Actively diversifying portfolio toward future capabilities &mdash; smart textiles, sensors, and e-textiles for wearable research</li>
           <li>Manufacturability assessments that de-risk lab-to-production transitions</li>
           <li>Active DEVCOM ecosystem engagement for defense-adjacent programs</li>
         </ul>
@@ -1165,7 +1216,7 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
       <div class="syn-left">
         <div class="syn-partner-label">Industry Partners</div>
         <div class="syn-head">Complementary capability, shared execution depth.</div>
-        <p class="syn-body">Envision brings textile and sewn-goods manufacturing, configuration and fulfillment, and a DLA AbilityOne Tailored Logistics Support lane that pairs naturally with partners already running federal contracting, logistics, or adjacent manufacturing lines.</p>
+        <p class="syn-body">Envision brings textile and sewn-goods manufacturing, configuration and fulfillment, and a DLA AbilityOne Tailored Logistics Support lane that pairs naturally with partners already running federal contracting, logistics, or adjacent manufacturing lines. TLS serves DoD buyers who value a DLA-managed, requisition-style path &mdash; unlocking more capability aligned to how government customers actually buy.</p>
       </div>
 
       <div class="syn-right">
@@ -1173,7 +1224,8 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
         <ul class="syn-hooks">
           <li>Textile and sewn-goods depth complements hardware-led partners</li>
           <li>Kitting, assembly, and fulfillment capacity for joint programs</li>
-          <li>TLS lane complements existing GSA MAS coverage</li>
+          <li>TLS lane complements existing GSA MAS coverage and fits DLA-managed, requisition-style DoD buying</li>
+          <li>Envision Xpress leverages pricing, inventory, and distribution across 150+ Base Supply Stores, plus 16 BSCs in 10 states &mdash; brick-and-mortar presence on installations for delivery, service, and customer engagement</li>
           <li>AbilityOne workforce creates federal channel advantages</li>
         </ul>
       </div>
@@ -1207,7 +1259,7 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
       <div class="syn-right">
         <div class="syn-hooks-head">Concrete synergy hooks</div>
         <ul class="syn-hooks">
-          <li>Berry, TAA, ISO, and DCMA credentials in place</li>
+          <li>Berry, TAA, and ISO 9001:2015 credentials in place</li>
           <li>Federal channel infrastructure operational, not aspirational</li>
           <li>Innovation Lab open to collaborative R&amp;D engagements</li>
           <li>Capacity headroom for partner ramp and program scaling</li>
@@ -1309,7 +1361,7 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
 <!-- ========== NAV CONTROLS ========== -->
 <div class="nav-controls">
   <button class="nav-btn" id="prevBtn" onclick="prevSlide()">&larr; Prev</button>
-  <div class="nav-counter"><span id="currSlide">1</span> / <span id="totalSlides">12</span></div>
+  <div class="nav-counter"><span id="currSlide">1</span> / <span id="totalSlides">13</span></div>
   <button class="nav-btn" id="nextBtn" onclick="nextSlide()">Next &rarr;</button>
   <button class="nav-btn" onclick="toggleFullscreen()" style="border-left: 1px solid var(--border); padding-left: 1rem; margin-left: 0.5rem;">Fullscreen</button>
 </div>
