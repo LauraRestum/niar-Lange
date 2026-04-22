@@ -53,6 +53,22 @@ body {
   padding: 2.5rem 4rem 2.25rem;
 }
 
+/* Hero building photo behind title slide content */
+.slide-hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.22;
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+}
+.slide-hero-bg ~ .slide-head,
+.slide-hero-bg ~ .slide-body,
+.slide-hero-bg ~ .slide-foot { position: relative; z-index: 1; }
+
 .slide.active {
   opacity: 1;
   pointer-events: auto;
@@ -700,6 +716,7 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
 
 <!-- ================= SLIDE 1: TITLE ================= -->
 <section class="slide bg-grey active" data-slide="1">
+  <img class="slide-hero-bg" src="envision%201865776-23-21.jpg" alt="">
   <div class="slide-head">
     <div class="slide-logo">Envision<span>.</span></div>
     <div class="slide-section-label">Partner Review</div>
