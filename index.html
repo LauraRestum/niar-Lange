@@ -503,6 +503,19 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
   overflow: hidden;
   min-height: 180px;
 }
+.img-ph.has-image {
+  background: var(--blue-dark);
+  border: none;
+}
+.img-ph img.img-real {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 2;
+}
+.img-ph.has-image::before { display: none; }
 .img-ph::before {
   content: '';
   position: absolute;
@@ -553,9 +566,56 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
 .title-logo-ph {
   width: 140px; height: 140px; border-radius: 50%;
   margin-bottom: 1.75rem; min-height: 0;
+  background: var(--blue-dark);
+  border: none;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.title-logo-ph img {
+  width: 78%; height: 78%; object-fit: contain;
 }
 .title-logo-ph .img-ph-icon {
   width: 56px; height: 56px; font-size: 1.6rem;
+}
+
+/* Full white logo used in navy slide header */
+.slide-head-logo-img {
+  height: 34px;
+  width: auto;
+  display: block;
+}
+
+/* At-a-glance media banner (slide 2) */
+.aag-media {
+  aspect-ratio: 21 / 7;
+  min-height: 0;
+  margin-bottom: 1.25rem;
+}
+
+/* Capability card media (slide 5) */
+.cap-card-lg {
+  padding: 0;
+  overflow: hidden;
+}
+.cap-card-media {
+  aspect-ratio: 16 / 9;
+  min-height: 0;
+  border: none;
+  background: var(--blue-dark);
+  position: relative;
+}
+.cap-card-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.cap-card-inner {
+  padding: 1.5rem 1.5rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .featured-media {
@@ -647,8 +707,8 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
 
   <div class="slide-body">
     <div class="slide-title-layout">
-      <div class="img-ph title-logo-ph">
-        <div class="img-ph-icon">E</div>
+      <div class="title-logo-ph">
+        <img src="EnvisionHandLogo.png" alt="Envision hand logo">
       </div>
       <div class="title-accent"></div>
       <div class="title-hero-label">Built to Partner</div>
@@ -688,6 +748,10 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
   <div class="slide-body">
     <div class="eyebrow">The Numbers</div>
     <h1 class="slide-title">An established U.S. manufacturer, <em>built at scale.</em></h1>
+
+    <div class="img-ph has-image aag-media">
+      <img class="img-real" src="envision%201865776-23-21.jpg" alt="Envision Industries facility exterior">
+    </div>
 
     <div class="aag-grid">
       <div class="aag-cell">
@@ -736,6 +800,9 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
         <div class="eyebrow">What We Do Today</div>
         <h1 class="slide-title">Four core capabilities, <em>vertically integrated.</em></h1>
         <p class="slide-sub">Envision operates two manufacturing campuses in Dallas and Wichita, plus an on-site Innovation &amp; Prototyping Laboratory. Every capability is backed by operational infrastructure, documented past performance, and real scale headroom for partner ramp.</p>
+        <div class="img-ph has-image intro-media">
+          <img class="img-real" src="envision%201866006-23-21.jpg" alt="Envision manufacturing floor overview">
+        </div>
       </div>
 
       <div class="intro-caps-preview">
@@ -768,7 +835,7 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
 <!-- ================= SLIDE 4: FEATURED TEXTILE ================= -->
 <section class="slide bg-navy" data-slide="4">
   <div class="slide-head">
-    <div class="slide-logo">Envision<span>.</span></div>
+    <img class="slide-head-logo-img" src="Envision_PrimaryLogo_WHITE.png" alt="Envision">
     <div class="slide-section-label">Core Competency</div>
   </div>
 
@@ -777,10 +844,8 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
       <div>
         <div class="eyebrow">01 &bull; Core Competency</div>
         <h1 class="slide-title">Textile &amp; sewn-goods <em>manufacturing.</em></h1>
-        <div class="img-ph featured-media">
-          <div class="img-ph-icon">&#9633;</div>
-          <div class="img-ph-label">Image Placeholder</div>
-          <div class="img-ph-sub">Textile production floor or sewn-goods detail shot</div>
+        <div class="img-ph has-image featured-media">
+          <img class="img-real" src="Envision-Day_02-0697.jpg" alt="Red technical textile being processed">
         </div>
       </div>
 
@@ -818,19 +883,34 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
 
     <div class="three-cap-grid">
       <div class="cap-card-lg">
-        <div class="today-n">02</div>
-        <h3>Innovation &amp; Prototyping Laboratory</h3>
-        <p>End-to-end prototyping. Digital pattern design, smart textile integration (RFID, embedded sensors, e-textiles), additive manufacturing, manufacturability assessments, and secure collaboration with government and commercial partners.</p>
+        <div class="cap-card-media">
+          <img src="Envision-Day_02-0827.jpg" alt="Innovation lab precision work">
+        </div>
+        <div class="cap-card-inner">
+          <div class="today-n">02</div>
+          <h3>Innovation &amp; Prototyping Laboratory</h3>
+          <p>End-to-end prototyping. Digital pattern design, smart textile integration (RFID, embedded sensors, e-textiles), additive manufacturing, manufacturability assessments, and secure collaboration with government and commercial partners.</p>
+        </div>
       </div>
       <div class="cap-card-lg">
-        <div class="today-n">03</div>
-        <h3>Kitting, Assembly &amp; Fulfillment</h3>
-        <p>Configuration services including kitting, serialized asset prep, packaging, labeling, and provisioning. Integrated fulfillment capability with direct ship to federal and commercial endpoints.</p>
+        <div class="cap-card-media">
+          <img src="envision%201866246-23-21.jpg" alt="Kitting and assembly workstation">
+        </div>
+        <div class="cap-card-inner">
+          <div class="today-n">03</div>
+          <h3>Kitting, Assembly &amp; Fulfillment</h3>
+          <p>Configuration services including kitting, serialized asset prep, packaging, labeling, and provisioning. Integrated fulfillment capability with direct ship to federal and commercial endpoints.</p>
+        </div>
       </div>
       <div class="cap-card-lg">
-        <div class="today-n">04</div>
-        <h3>Quality, Compliance &amp; Federal Channel</h3>
-        <p>ISO 9001:2015, DCMA Alternate Release Program authorization, PMO discipline, and a DLA AbilityOne Tailored Logistics Support lane. The operational spine that makes federal-grade delivery repeatable.</p>
+        <div class="cap-card-media">
+          <img src="Envision-Day_02-0734.jpg" alt="Quality reporting and systems">
+        </div>
+        <div class="cap-card-inner">
+          <div class="today-n">04</div>
+          <h3>Quality, Compliance &amp; Federal Channel</h3>
+          <p>ISO 9001:2015, DCMA Alternate Release Program authorization, PMO discipline, and a DLA AbilityOne Tailored Logistics Support lane. The operational spine that makes federal-grade delivery repeatable.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -865,7 +945,7 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
 <!-- ================= SLIDE 7: CWHW PROGRAM ================= -->
 <section class="slide bg-navy" data-slide="7">
   <div class="slide-head">
-    <div class="slide-logo">Envision<span>.</span></div>
+    <img class="slide-head-logo-img" src="Envision_PrimaryLogo_WHITE.png" alt="Envision">
     <div class="slide-section-label">Program In Action</div>
   </div>
 
@@ -873,10 +953,8 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
     <div class="eyebrow">Program In Action</div>
     <h1 class="slide-title">Army Cold Weather <em>Hand Warmer (CWHW).</em></h1>
 
-    <div class="img-ph cwhw-media">
-      <div class="img-ph-icon">&#9633;</div>
-      <div class="img-ph-label">Image Placeholder</div>
-      <div class="img-ph-sub">Cold Weather Hand Warmer prototype or field photo</div>
+    <div class="img-ph has-image cwhw-media">
+      <img class="img-real" src="envision%201866576-23-21.jpg" alt="Production and fulfillment floor">
     </div>
 
     <div class="cwhw-layout">
