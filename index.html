@@ -343,32 +343,32 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
 
 /* ========== SLIDE 2: AT A GLANCE ========== */
 .aag-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr);
+  display: grid; grid-template-columns: repeat(5, 1fr);
   gap: 0;
   border-left: 1px solid var(--border);
+  border-top: 1px solid var(--border);
   margin-top: 2rem;
   flex: 1;
   align-content: center;
 }
 .aag-cell {
-  padding: 2rem 1.75rem;
+  padding: 1.4rem 1.25rem;
   border-right: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
-}
-.aag-cell:nth-child(-n+3) {
-  border-top: 1px solid var(--border);
+  display: flex; flex-direction: column;
 }
 .aag-n {
-  font-size: clamp(2.4rem, 3.6vw, 3.4rem); font-weight: 800;
+  font-size: clamp(1.9rem, 2.8vw, 2.8rem); font-weight: 800;
   color: var(--blue-dark); letter-spacing: -0.03em; line-height: 1;
-  margin-bottom: 0.9rem; font-variant-numeric: tabular-nums;
+  margin-bottom: 0.75rem; font-variant-numeric: tabular-nums;
 }
 .aag-n span { color: var(--green-deep); }
-.aag-n.small { font-size: clamp(1.6rem, 2.7vw, 2.3rem); }
+.aag-n.small { font-size: clamp(1.3rem, 2.1vw, 1.9rem); }
 .aag-l {
-  font-size: 0.84rem; font-weight: 800; letter-spacing: 0.2em;
+  font-size: 0.76rem; font-weight: 800; letter-spacing: 0.18em;
   text-transform: uppercase; color: var(--blue-dark);
-  line-height: 1.5;
+  line-height: 1.45;
+  margin-top: auto;
 }
 
 /* ========== SLIDE 3: WHAT WE DO INTRO ========== */
@@ -844,10 +844,10 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
   .eyebrow { margin-bottom: 0.6rem; font-size: 0.72rem; }
   .slide-head { margin-bottom: 1rem; padding-bottom: 0.5rem; }
   .slide-foot { padding-top: 0.6rem; font-size: 0.68rem; }
-  .aag-cell { padding: 1.1rem 1.25rem; }
-  .aag-n { font-size: clamp(1.8rem, 2.8vw, 2.4rem); margin-bottom: 0.5rem; }
-  .aag-n.small { font-size: clamp(1.3rem, 2vw, 1.7rem); }
-  .aag-l { font-size: 0.72rem; }
+  .aag-cell { padding: 0.95rem 0.95rem; }
+  .aag-n { font-size: clamp(1.5rem, 2.3vw, 2rem); margin-bottom: 0.45rem; }
+  .aag-n.small { font-size: clamp(1.1rem, 1.7vw, 1.5rem); }
+  .aag-l { font-size: 0.66rem; letter-spacing: 0.16em; }
   .aag-media { aspect-ratio: 21 / 4.5; margin-bottom: 0.75rem; }
   .intro-media { aspect-ratio: 16 / 8; margin-bottom: 1rem; }
   .featured-media { aspect-ratio: 16 / 9; margin-top: 1rem; }
@@ -882,8 +882,10 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
 @media (max-height: 720px) {
   .slide { padding: 1.25rem 2.25rem 1rem; }
   .aag-media, .cwhw-media { aspect-ratio: 21 / 4; }
-  .aag-cell { padding: 0.85rem 1rem; }
-  .aag-n { font-size: clamp(1.5rem, 2.4vw, 2rem); margin-bottom: 0.35rem; }
+  .aag-cell { padding: 0.75rem 0.8rem; }
+  .aag-n { font-size: clamp(1.25rem, 1.9vw, 1.7rem); margin-bottom: 0.3rem; }
+  .aag-n.small { font-size: clamp(0.95rem, 1.5vw, 1.3rem); }
+  .aag-l { font-size: 0.6rem; letter-spacing: 0.14em; }
 }
 @media (max-width: 1200px) {
   .slide { padding: 2.5rem 3rem 2rem; }
@@ -895,12 +897,24 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
   .slide-title-layout { grid-template-columns: 1fr; grid-template-rows: minmax(220px, 40vh) auto; }
   .title-visual { min-height: 220px; }
 }
+@media (max-width: 1200px) {
+  .aag-grid { grid-template-columns: repeat(5, 1fr); }
+}
+@media (max-width: 1024px) {
+  .aag-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 720px) {
+  .aag-grid { grid-template-columns: repeat(2, 1fr); }
+}
 @media (max-width: 860px) {
   .slide { padding: 2rem 1.5rem; }
-  .aag-grid, .featured-layout, .intro-layout, .syn-layout { grid-template-columns: 1fr; }
+  .featured-layout, .intro-layout, .syn-layout { grid-template-columns: 1fr; }
   .three-cap-grid, .arc-layout, .strat-layout { grid-template-columns: 1fr; }
   .title-meta { grid-template-columns: 1fr; gap: 1rem; }
   .cwhw-layout { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .aag-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -1043,19 +1057,23 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
     <div class="aag-grid">
       <div class="aag-cell">
         <div class="aag-n">90<span>+</span></div>
-        <div class="aag-l">Years<br>Manufacturing</div>
+        <div class="aag-l">Years of Continuous<br>Operating History</div>
       </div>
       <div class="aag-cell">
-        <div class="aag-n">410<span>K</span></div>
+        <div class="aag-n">400<span>K</span></div>
         <div class="aag-l">Sq Ft Across<br>Dallas &amp; Wichita</div>
       </div>
       <div class="aag-cell">
-        <div class="aag-n">447</div>
-        <div class="aag-l">Skilled<br>Employees</div>
+        <div class="aag-n">500<span>+</span></div>
+        <div class="aag-l">Employees Across<br>Production &amp; Services</div>
       </div>
       <div class="aag-cell">
         <div class="aag-n">$40<span>M</span></div>
-        <div class="aag-l">Recent Facility<br>Investment</div>
+        <div class="aag-l">Dallas Campus<br>Investment</div>
+      </div>
+      <div class="aag-cell">
+        <div class="aag-n">$15<span>M</span></div>
+        <div class="aag-l">Wichita Campus<br>Investment</div>
       </div>
       <div class="aag-cell">
         <div class="aag-n small">Berry<br>&amp; TAA</div>
@@ -1064,6 +1082,18 @@ h1.title-hero em { font-style: normal; color: var(--green-deep); }
       <div class="aag-cell">
         <div class="aag-n">160<span>+</span></div>
         <div class="aag-l">Stores Nationwide<br>16 Envision BSCs, 10 States</div>
+      </div>
+      <div class="aag-cell">
+        <div class="aag-n">$265<span>M</span></div>
+        <div class="aag-l">Total<br>Revenue</div>
+      </div>
+      <div class="aag-cell">
+        <div class="aag-n">$132<span>M</span></div>
+        <div class="aag-l">Revenue From Outside Core,<br>Including Federal Contracts</div>
+      </div>
+      <div class="aag-cell">
+        <div class="aag-n">$0</div>
+        <div class="aag-l">Long-Term<br>Debt</div>
       </div>
     </div>
   </div>
