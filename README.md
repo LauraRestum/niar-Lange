@@ -24,7 +24,7 @@ High-level partner pitch deck for meetings with research institutions, manufactu
 The deck is intentionally generic so it can be reused across partner meetings. Two places typically get tailored per audience:
 
 - Slide 1 title meta: update `Prepared For` to the partner's name.
-- Slides 9&ndash;11: swap `syn-partner-label`, `syn-head`, `syn-body`, and the `syn-hooks` list items with partner-specific language if desired.
+- Slides 9 through 11: swap `syn-partner-label`, `syn-head`, `syn-body`, and the `syn-hooks` list items with partner-specific language if desired.
 
 ## Navigation
 
